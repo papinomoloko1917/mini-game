@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../ui.php';
+require_once __DIR__
+    . '/../ui/commands.php';
 
 clearScreen();
 
@@ -15,11 +16,27 @@ animation(
 );
 
 say();
-say(red('Дракон рычит на вас!'));
+
+say(red('Дракон громко рычит!'));
 
 say();
 
 option(1, '⚔️ Атаковать');
-option(2, '🏃 Убежать');
+option(2, '💬 Поговорить');
+option(3, '🏃 Убежать');
 
 $choice = ask();
+
+if ($choice === '1') {
+    say(red('Ты бросаешься на дракона!'));
+}
+
+if ($choice === '2') {
+    say(yellow('Дракон внимательно тебя слушает...'));
+}
+
+if ($choice === '3') {
+    say(green('Ты успешно убежал!'));
+}
+
+waitForEnter();
